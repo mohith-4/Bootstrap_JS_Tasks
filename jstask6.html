@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instagram Login</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/8.0.0-beta3/css/all.min.css" integrity="sha384-uyu8jH8S7IP5SMiLUrvCv6GL5zECEHn8dIu6vU2Ovhhw3R2DlLI6JI6OxD4EK4dF" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-uyu8jH8S7IP5SMiLUrvCv6GL5zECEHn8dIu6vU2Ovhhw3R2DlLI6JI6OxD4EK4dF" crossorigin="anonymous">
+
+    <style>
+      
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #fafafa;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .container {
+                background-color: #fff;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+                text-align: center;
+                width: 350px;
+                padding: 20px;
+            }
+
+            .logo {
+                width: 200px;
+                height: auto;
+                margin: 10px auto;
+            }
+
+            form {
+                display: flex;
+                flex-direction: column;
+            }
+
+            label {
+                display: flex;
+                align-items: center;
+                margin-bottom: 5px;
+            }
+
+            label i {
+                margin-right: 10px; 
+                color: #ed6c6c; 
+            }
+
+
+           #username , #password {
+                padding: 10px;
+                margin: 5px 0;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+            }
+
+            #remember{
+                margin: 0;
+                padding: 0;
+            }
+          
+
+
+            button {
+                background-color: #3897f0;
+                color: #fff;
+                padding: 10px;
+                border: none;
+                border-radius: 3px;
+                cursor: pointer;
+                font-weight: bold;
+            }
+
+            .login-options {
+                margin-top: 10px;
+            }
+
+            .signup-container {
+                margin-top: 20px;
+            }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <img src="ig-logo.png" alt="Instagram Logo" class="logo">
+            <form id="login-form" action="#" method="post">
+                <div>
+                    <label for="username"><i class="fas fa-user"></i></label>
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </div>
+                <div>
+                    <label for="password"><i class="fas fa-lock"></i></label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                
+                <button type="submit">Log In</button>
+                
+            </form>
+            <div id="remember">
+                <input type="checkbox" id="remember_me" name="remember_me" >
+                <label for="remember_me">Remember Me</label>
+            </div>
+           
+            <div class="login-options">
+                <a href="#">Forgot Password?</a>
+            </div>
+        </div>
+        <div class="signup-container">
+            <p>Don't have an account? <a href="#">Sign up</a></p>
+        </div>
+    </div>
+    <script>
+
+document.addEventListener("DOMContentLoaded", function () {
+    const loginForm = document.getElementById("login-form");
+    const usernameInput = document.getElementById("username");
+    const passwordInput = document.getElementById("password");
+    const rememberMeCheckbox = document.getElementById("remember_me");
+
+    const rememberedUser = localStorage.getItem("rememberedUser");
+    if (rememberedUser) {
+        usernameInput.value = rememberedUser;
+        rememberMeCheckbox.checked = true;
+    }
+
+    loginForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+
+        const username = usernameInput.value;
+        const password = passwordInput.value;
+
+        if (!username || !password) {
+            alert("Please fill in both username and password fields.");
+            return;
+        }
+
+        if (rememberMeCheckbox.checked) {
+            localStorage.setItem("rememberedUser", username);
+        } else {
+            localStorage.removeItem("rememberedUser");
+        }
+
+        alert(`Welcome, ${username}! You are now logged in.`);
+        
+    });
+});
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+    #container{
+        margin: auto;
+        margin-top: 100px;
+        padding: 10px;
+       width: 50%;
+       
+   
+    }
+</style>
+</head>
+<body>
+    <div id="container">
+     
+    
+    <button id="dateButton">Show Date</button><br>
+    <p id="display1"></p> <br>
+    <button id="timeButton">Show Time</button><br>
+    
+    <p id="display2"></p>
+    </div>
+
+    <script>
+        const dateButton = document.getElementById('dateButton');
+        const timeButton = document.getElementById('timeButton');
+        const display1 = document.getElementById('display1');
+        const display2 = document.getElementById('display2');
+
+
+        dateButton.addEventListener('click', () => {
+            const currentDate = new Date();
+            const formattedDate = currentDate.toLocaleDateString();
+            display1.textContent = `Current Date: ${formattedDate}`;
+        });
+
+        timeButton.addEventListener('click', () => {
+            const currentTime = new Date();
+            const formattedTime = currentTime.toString();
+            display2.textContent = `Current Time: ${formattedTime}`;
+        });
+    </script>
+</body>
+</html>

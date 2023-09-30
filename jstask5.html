@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #container{
+            width: 50%;
+            margin: auto;
+            margin-top: 100px;
+        }
+        .error {
+            color: red;
+            display: none;
+            margin-left: 10px;
+        }
+
+        .error.active {
+            display: inline;
+        }
+        div{
+            margin: 10px;
+        }
+        input{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container">
+
+    <form id="contact" method="post" action="" onsubmit="return validateForm()">
+        <div>
+            <label for="contact_name">Name:</label>
+            <input type="text" id="contact_name" name="name">
+            <span class="error" id="name_error">This field is required</span>
+        </div>
+        
+        <div>
+            <label for="contact_email">Email:</label>
+            <input type="email" id="contact_email" name="email">
+            <span class="error" id="email_error">A valid email address is required</span>
+        </div>						
+      
+        <div>
+            <label for="contact_website">Website:</label>
+            <input type="url" id="contact_website" name="website">
+            <span class="error" id="website_error">A valid URL is required</span>
+        </div>						
+       
+        <div>
+            <label for="contact_message">Message:</label>
+            <textarea id="contact_message" name="message"></textarea>
+            <span class="error" id="message_error">This field is required</span>
+        </div>					
+        
+        <div id="contact_submit">				
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+
+</div>
+
+    <script>
+        console.log("Function called");
+        function validateForm() {
+            console.log("Function called");
+            let isValid = true;
+
+            const nameInput = document.getElementById("contact_name");
+            const emailInput = document.getElementById("contact_email");
+            const websiteInput = document.getElementById("contact_website");
+            const messageInput = document.getElementById("contact_message");
+
+            const nameError = document.getElementById("name_error");
+            const emailError = document.getElementById("email_error");
+            const websiteError = document.getElementById("website_error");
+            const messageError = document.getElementById("message_error");
+
+            if (nameInput.value.trim() === "") {
+                nameError.classList.add("active");
+                isValid = false;
+            } else {
+                nameError.classList.remove("active");
+            }
+
+            if (emailInput.value.trim() === "" || !isValidEmail(emailInput.value)) {
+                emailError.classList.add("active");
+                isValid = false;
+            } else {
+                emailError.classList.remove("active");
+            }
+
+            if (websiteInput.value.trim() !== "" && !isValidURL(websiteInput.value)) {
+                websiteError.classList.add("active");
+                isValid = false;
+            } else {
+                websiteError.classList.remove("active");
+            }
+
+            if (messageInput.value.trim() === "") {
+                messageError.classList.add("active");
+                isValid = false;
+            } else {
+                messageError.classList.remove("active");
+            }
+
+            return isValid;
+        }
+
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+
+        function isValidURL(url) {
+            try {
+                new URL(url);
+                return true;
+            } catch (error) {
+                return false;
+            }
+        }
+    </script>
+    
+</body>
+</html>

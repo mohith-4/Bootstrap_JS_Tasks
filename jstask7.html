@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Animation</title>
+    <style>
+        #image {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            top: 50px;
+            left: 50px;
+            transition: left 1s;
+            margin-top: 50px;
+            margin-bottom: 100px;
+        }
+        #container{
+            
+                 margin: auto;
+            margin-top: 100px;
+            padding: 10px;
+           width: 30%;
+           border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="container"> 
+    
+ 
+
+    <img id="image" src="train.jpeg" alt="Moving Image">
+
+    <button id="startButton">Start</button>
+    <button id="stopButton">Stop</button>
+
+    </div>
+ 
+    <script>
+        const image = document.getElementById('image');
+        const startButton = document.getElementById('startButton');
+        const stopButton = document.getElementById('stopButton');
+
+        let animationInterval;
+
+        startButton.addEventListener('click', () => {
+            animationInterval = setInterval(() => {
+                const currentPosition = parseFloat(getComputedStyle(image).left);
+                image.style.left = currentPosition + 50 + 'px';  
+            }, 100);
+        });
+
+        stopButton.addEventListener('click', () => {
+            clearInterval(animationInterval);
+        });
+    </script>
+</body>
+</html>

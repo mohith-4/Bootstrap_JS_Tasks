@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Registration Form</title>
+    <!-- Include Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Include Font Awesome for symbols -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container h-100">
+        <h3 class="text-center">Task 5 </h3>
+        <div class="row h-100  justify-content-center align-items-center bg-secondary">
+            <div class="col-md-5 align-content-center">
+               
+                 
+                
+                <form name="registrationForm" class="mt-5   " onsubmit="return validateForm()" method="post">
+                  
+                    <div class="form-group mb-3">
+                        <label for="firstName"><i class="fas fa-user "></i> First Name:</label>
+                       
+                        <input type="text" class="form-control" id="firstName" name="firstName">
+                      
+                        <div class="invalid-feedback"><i class="fas fa-times-circle"></i> First Name is required.</div>
+                    </div>
+                    
+
+                    <div class="form-group">
+                        <label for="lastName"  ><i class="fas fa-user"></i> Last Name:</label>
+                        <input type="text" class="form-control" id="lastName" name="lastName">
+                        <div class="invalid-feedback"><i class="fas fa-times-circle"></i> Last Name is required.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"  ><i class="fas fa-envelope"></i> Email:</label>
+                        <input type="text" class="form-control" id="email" name="email">
+                        <div class="invalid-feedback"><i class="fas fa-times-circle"></i> Please provide a valid email address.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone"><i class="fas fa-phone"></i> Phone:</label>
+                        <input type="text" class="form-control" id="phone" name="phone">
+                        <div class="invalid-feedback"><i class="fas fa-times-circle"></i> Please provide a valid phone number.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address"><i class="fas fa-address-card"></i> Address:</label>
+                        <input type="text" class="form-control" id="address" name="address">
+                        <div class="invalid-feedback"><i class="fas fa-times-circle"></i> Address is required.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="city"><i class="fas fa-city"></i> City:</label>
+                        <input type="text" class="form-control" id="city" name="city">
+                        <div class="invalid-feedback"><i class="fas fa-times-circle"></i> City is required.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="state"><i class="fas fa-globe"></i> State:</label>
+                        <select class="form-control" id="state" name="state">
+                            <option value="" selected disabled>Select a state</option>
+                            <option value="ny">New York</option>
+                            <option value="ca">California</option>
+                            <option value="tx">Texas</option>
+                            
+                        </select>
+                        <div class="invalid-feedback"><i class="fas fa-times-circle"></i> Please select a state.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-home"></i> Housing:</label>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="housingYes" name="housing" value="yes">
+                            <label class="form-check-label" for="housingYes">Yes</label>
+                        </div>
+                        <div class="form-check">
+                            <input type="radio" class="form-check-input" id="housingNo" name="housing" value="no">
+                            <label class="form-check-label" for="housingNo">No</label>
+                        </div>
+                        <div class="invalid-feedback"><i class="fas fa-times-circle"></i> Please select housing option.</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="projectDescription"><i class="fas fa-file-alt"></i> Project Description:</label>
+                        <textarea class="form-control" id="projectDescription" name="projectDescription"></textarea>
+                        <div class="invalid-feedback"><i class="fas fa-times-circle"></i> Project description is required.</div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary col-12"><i class="fas fa-check"></i> Submit</button>
+                </form>
+            </div>
+            </div>
+        </div>
+    </div>
+ 
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+         
+        function validateForm() {
+
+            var firstName = document.forms["registrationForm"]["firstName"].value;
+            var lastName = document.forms["registrationForm"]["lastName"].value;
+            var email = document.forms["registrationForm"]["email"].value;
+            var phone = document.forms["registrationForm"]["phone"].value;
+            var address = document.forms["registrationForm"]["address"].value;
+            var city = document.forms["registrationForm"]["city"].value;
+            var state = document.forms["registrationForm"]["state"].value;
+            var housing = document.forms["registrationForm"]["housing"].value;
+            var projectDescription = document.forms["registrationForm"]["projectDescription"].value;
+ 
+            
+            if (firstName === "") {
+                document.getElementById("firstName").classList.add("is-invalid");
+                return false;
+            } else {
+                document.getElementById("firstName").classList.remove("is-invalid");
+            }
+
+            if (lastName === "") {
+                document.getElementById("lastName").classList.add("is-invalid");
+                return false;
+            } else {
+                document.getElementById("lastName").classList.remove("is-invalid");
+            }
+
+            if (email === "") {
+                document.getElementById("email").classList.add("is-invalid");
+                return false;
+            } else {
+                document.getElementById("email").classList.remove("is-invalid");
+            }
+            
+            if (phone === "") {
+                document.getElementById("phone").classList.add("is-invalid");
+                return false;
+            } else {
+                document.getElementById("phone").classList.remove("is-invalid");
+            }
+            
+            if (address === "") {
+                document.getElementById("address").classList.add("is-invalid");
+                return false;
+            } else {
+                document.getElementById("address").classList.remove("is-invalid");
+            }
+            if (city === "") {
+                document.getElementById("city").classList.add("is-invalid");
+                return false;
+            } else {
+                document.getElementById("city").classList.remove("is-invalid");
+            }
+            if (housing === "") {
+                document.getElementById("housing").classList.add("is-invalid");
+                return false;
+            } else {
+                document.getElementById("housing").classList.remove("is-invalid");
+            }
+
+           
+
+            return true;
+        }
+    </script>
+</body>
+</html>

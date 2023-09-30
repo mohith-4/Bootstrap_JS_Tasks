@@ -1,0 +1,20 @@
+.h1{
+    text-align: center;
+    z-index: 1;
+}
+
+.navigation{
+    width: 100%;
+    z-index: 1;
+}
+.nav-item{
+    margin-right: 40px;
+}
+ 
+.row{
+    text-align: center;
+}
+
+
+ 
+  

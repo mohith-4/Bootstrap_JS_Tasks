@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Task 5</title>
+    <style>
+
+    body {
+            background: linear-gradient(to bottom, #e89cf6, #9ac7e6);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        table {
+            width: 700px;
+            margin: 20px auto;
+            margin-top: 20px;
+           
+            border-radius: 10px;
+            padding: 50px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+        }
+        td{
+            padding: 10px;
+        } 
+        h3{
+            color:blue;
+        }
+        label{
+            font-weight: bold;
+        }
+        .box{
+            width:70% ;
+            height: 100%;
+            box-sizing:border-box;
+            padding-bottom: 0;
+        }
+        #register{
+            width: 200px;
+            margin-left: 35%;
+            background-color: rgb(235, 58, 58);
+            border-radius: 10px;
+            
+        }
+        #address{
+            padding: 30px;
+        }
+        
+      input{
+        width: 20px;
+      }
+    </style>
+</head>
+<body>
+    <center>
+<table   style="border-collapse: collapse;">
+    <form action="" onsubmit="return validateForm()">
+        <tr>
+            <td>
+                <label for="fname">First Name</label>
+            </td>
+            <td>
+                <input type="text" name="" id="fname" class="box"> 
+            </td>
+           
+        </tr>
+        <tr>
+            <td>
+                <label for="lname">Lastname</label>
+            </td>
+            <td>
+                <input type="text" id="lname"  class="box"> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="email">Email</label>
+            </td>
+            <td>
+                <input type="email" id="email"  class="box"> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password">Password</label>
+            </td>
+            <td>
+                <input type="password" id="password"  class="box"> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="rpassword">RE Password</label>
+            </td>
+            <td>
+                <input type="password" id="rpassword"  class="box"> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="Gender">Gender</label>
+            </td>
+            <td>
+               
+                <input type="radio" id="male" value="male" name="Gender">
+                    <label for="male">Male</label>
+                   
+                    <br>
+                    
+                    <input type="radio" id="male" value="male" name="Gender" >
+                    <label for="male">Female</label>
+                    
+                    </td>
+               
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="age">Age</label>
+            </td>
+            <td>
+                <input type="text" id="age"  class="box"> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="phn">Phone Number</label>
+            </td>
+            <td>
+                <input type="tel" id="phn"  class="box"> 
+            </td>
+        </tr>
+        <tr>
+            <td id="address">
+                <label for="address">Address</label>
+            </td>
+            <td>
+                <input type="" id="address"  class="box">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="state">State</label>
+            </td>
+            <td>
+                <input type="text" id="state"  class="box"> 
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="country">Country</label>
+            </td>
+            <td>
+                 <select name=" " id="country" >
+                    <option value="select">Select your country </option>
+                    <option value="India">India</option>
+                    <option value="USA">USA</option>
+                    <option value="Sri lanka">Sri Lanka</option>
+                 </select>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for="password">Language known</label>
+            </td>
+            <td >
+                <input type="checkbox" id="telugu" value="Telugu">
+                <label for="telugu">Telugu</label>
+                <input type="checkbox"  id="english" value="English">
+                <label for="english">English</label>
+                <input type="checkbox"  id="hindi" value="Hindi">
+                <label for="hindi">Hindi</label>
+                <input type="checkbox" id="kannada" value="Kannada">
+                <label for="kannada">Kannada</label>
+                
+            </td>
+        </tr>
+
+        <tr>
+            <td colspan="2">
+                <input type="checkbox" name="declare" id="declare">
+                <label for="declare">Hereby I declare all the given details are true</label>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+                Login to <a href="https://www.wikipedia.org/">Wikipedia</a> website
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input type="submit" id="register" value="Register" >
+            </td>
+        </tr>
+    </form>
+</table>
+</center>
+
+
+<script>
+    function validateForm() {
+         clearErrorMessages();
+         let hasError = false;
+
+         const fname = document.getElementById("fname").value;
+        if (fname === "") {
+            displayErrorMessage("Poor","fname");
+            hasError = true;
+        }
+        const lname = document.getElementById("lname").value;
+        if (lname === "") {
+            displayErrorMessage("Poor","lname");
+            hasError = true;  
+        }
+
+        const email = document.getElementById("email").value;
+        if (email === "") {
+            displayErrorMessage(" Poor","email");
+            hasError = true;
+        }
+
+        const password = document.getElementById("password").value;
+        if (password === "") {
+            displayErrorMessage("Poor","password");
+            hasError = true;
+        }
+        const rpassword = document.getElementById("password").value;
+        if (rpassword === "" | rpassword != password) {
+            displayErrorMessage("Poor","rpassword");
+            hasError = true;
+        }
+
+       
+
+        const age = document.getElementById("age").value;
+        if (age === "") {
+            displayErrorMessage("Poor","age");
+            hasError = true;
+        }
+
+        const phn = document.getElementById("phn").value;
+        if (phn === "") {
+            displayErrorMessage("Poor" ,"phn");
+            hasError = true;
+        }
+        const address = document.getElementById("address").value;
+        if (address === "") {
+            displayErrorMessage("poor","address");
+            hasError = true;
+        }
+
+        const state = document.getElementById("state").value;
+        if (state === "") {
+            displayErrorMessage("Poor","state");
+            hasError = true;
+        }
+
+        if (hasError) {
+     
+        return false;
+    }
+ 
+        return true;
+    }
+
+    function displayErrorMessage(message, fieldId) {
+        const errorElement = document.createElement("div");
+        errorElement.className = "error";
+        errorElement.textContent = message;
+        errorElement.style.color = "red" ;
+        const field = document.getElementById(fieldId);
+        field.parentNode.insertBefore(errorElement, field.nextSibling);
+        field.style.border = "1px solid red";
+    }
+
+    function clearErrorMessages() {
+        const errorMessages = document.querySelectorAll(".error");
+        errorMessages.forEach((errorMessage) => {
+            errorMessage.parentNode.removeChild(errorMessage);
+        });
+
+        const formFields = document.querySelectorAll(".box");
+        formFields.forEach((field) => {
+            field.style.border = "1px solid #ccc";
+        });
+    }
+</script>
+   
+</body>
+</html>
